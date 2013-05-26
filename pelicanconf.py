@@ -4,10 +4,10 @@ from __future__ import unicode_literals
 
 AUTHOR = u'Harvey Mudd Combat Robot Club'
 SITENAME = u'HMC Robot League'
-SITEURL = ''
+SITEURL = 'http://cs.hmc.edu/~adobke/bot_league'
 
 TIMEZONE = 'America/Los_Angeles'
-THEME = "theme"
+THEME = "./theme"
 #THEME = "../pelican-themes/tuxlite_tbs"
 
 DEFAULT_LANG = u'en'
@@ -32,4 +32,7 @@ DEFAULT_PAGINATION = 10
 #RELATIVE_URLS = True
 
 MD_EXTENSIONS = (['extra'])
-MARKDOWN_EXTENSIONS = (['extra'])
+MD_EXTENSIONS = (['extra'])
+
+USE_FOLDER_AS_CATEGORY = False
+DELETE_OUTPUT_DIRECTORY = True
