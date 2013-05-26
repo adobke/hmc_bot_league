@@ -2,6 +2,7 @@ Title: League Rules
 
 These rules are based on the Robot Fighting League Standard Ruleset.
 
+<div class="rules" markdown="1">
 1.    General
     1.	All participants build and operate robots at their own risk. Combat robotics is inherently dangerous. There is no amount of regulation that can encompass all the dangers involved. Please take care to not hurt yourself or others when building, testing and competing. 
     2.	This rule set is designed to for adjustment by each event depending on its safety concerns. 
@@ -41,3 +42,4 @@ Regular	| Walking
    3.	Autonomous robots must be self-contained, with all sensors and computing resources on-board and included in the weight. External sensors, computers, etc. are not allowed.
    4.	The additional Autonomous robot rules found in Section 5 apply to the 1 & 3 lb Autonomous class.
 
+</div>

@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = u'Harvey Mudd Combat Robot Club'
 SITENAME = u'HMC Robot League'
-SITEURL = 'http://cs.hmc.edu/~adobke/bot_league'
+SITEURL = ''
 
 TIMEZONE = 'America/Los_Angeles'
 THEME = "./theme"
@@ -31,8 +31,7 @@ DEFAULT_PAGINATION = 10
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 
-MD_EXTENSIONS = (['extra'])
-MD_EXTENSIONS = (['extra'])
+MD_EXTENSIONS = (['extra','wikilinks','sane_lists','nl2br'])
 
 USE_FOLDER_AS_CATEGORY = False
 DELETE_OUTPUT_DIRECTORY = True
