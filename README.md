@@ -1,2 +1,3 @@
-hmc_bot_league
+HMC bot league
 ==============
+Website in development
