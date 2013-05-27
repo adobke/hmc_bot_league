@@ -8,6 +8,6 @@ Robespierre's sprockets were made eight at a time using an EDM machine.
 
 ![Spockets](|filename|/images/robespierre/sprocket.jpg)
 
-After that they were lathed to correct thickness and bevel.
+After that they were lathed to the correct thickness and bevel.
 
 ![Wheels](|filename|/images/robespierre/wheel.jpg)
