@@ -1,0 +1,48 @@
+#top_carousel {
+  background: orange;
+  position: relative;
+  overflow: hidden;
+}
+
+#top_carousel .item {
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 0px;
+  left: 20px;
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 0;
+  padding: 15px;
+  background: rgba(0,0,0,0.75);
+  width: 100%;
+  left: 0;
+  text-align: right;
+}
+
+.navbar-brand {
+  max-width: 300px;
+  color: #9E8352;
+  font-size: 24px;
+  padding-right: 5px;
+}
+
+#updates {
+  padding-left: 0px;
+}
+
+#main_content {
+  line-height: 2px;
+}
+
+#main_content hr {
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+.navbar {
+  margin-bottom: 15px;
+}

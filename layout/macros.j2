@@ -1,0 +1,74 @@
+{% macro render_excerpt(res, class=None) %}
+{% refer to res.url as post %}
+<article {{'class='~class if class }}>
+<h3><a href="{{ content_url(res.url) }}">{{ res.meta.title }}</a></h3>
+<a href="{{ content_url(res.url) }}">{{ post.image|markdown|typogrify }}</a>
+{{ post.excerpt|markdown|typogrify }}
+<time datetime="{{ res.meta.created.strftime('%Y-%m-%d') }}">
+    Posted: {{ res.meta.created.strftime('%a, %d %b %Y') }}
+</time>
+</article>
+{% endmacro %}
+
+{% macro render_nav(menu) -%}
+{% if menu -%}
+  <ul class="nav navbar-nav">
+      {% for item in menu -%}
+      {% set active = False -%}
+      {% if item.type == 'page' -%}
+          {% set active = (resource.url ==
+              site.content.resource_from_relative_path(item.url).url) -%}
+      {% else -%}
+          {% set active = (node ==
+              site.content.node_from_relative_path(item.url)) -%}
+      {%- endif %}
+      {% set classes = ['button', 'white'] -%}
+      {% do classes.append('active') if active -%}
+      {% do classes.append(item.css_class) if item.css_class -%}
+      <li class="{{ classes|join(' ') }}">
+          <a title="{{ item.description }}"
+              href="{{ content_url(item.url) }}">
+              {{ item.name }}
+          </a>
+      </li>
+      {%- endfor %}
+  </ul>
+{%- endif %}
+{%- endmacro %}
+
+{% macro render_carousel(items) -%}
+  <div id="top_carousel" class="carousel slide">
+    <ol class="carousel-indicators">
+      {% for item in items -%}
+      <li data-target="#top_carousel" data-slide-to="{{ loop.index0 }}" {{ "class='active'" if loop.index0 == 0 }} "></li>
+      {%- endfor %}
+    </ol>
+
+    <div class="carousel-inner">
+      {% for item in items -%}
+        <div {{ "class='item active'" if loop.index0 == 0 else "class='item'" }} >
+          {{ "<img alt='%s' src='%s'/>"|format(item.caption, media_url(item.source)) }}
+          <div class="carousel-caption">
+            {{ item.caption }}
+          </div>
+        </div>
+      {%- endfor %}
+    </div>
+  </div>
+{% if items -%}
+{%- endif %}
+{%- endmacro %}
+
+{% macro render_links(links) -%}
+{% if links -%}
+  <ul class="nav nav-pills nav-stacked">
+    {% for link in links -%}
+      <li>
+        <a href="{{link.url}}">{{link.title}}</a>
+      </li>
+    {%- endfor %}
+  </ul>
+
+{%- endif %}
+{%- endmacro %}
+

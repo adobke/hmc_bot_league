@@ -19,6 +19,7 @@ lib
 lib64
 output
 *.swp
+deploy
 
 # Installer logs
 pip-log.txt

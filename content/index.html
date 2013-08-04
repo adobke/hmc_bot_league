@@ -1,0 +1,45 @@
+---
+extends: base.j2
+default_block: main
+title: Home
+description: Home page for the Harvey Mudd Combat Robot Club
+---
+
+{% from "macros.j2" import render_carousel with context %}
+<section class="content_header">
+  {{ render_carousel(front_carousel_items) }}
+</section>
+
+
+<div class="col-lg-8" id="updates"> 
+<h2>
+  Updates
+<hr>
+</h2>
+
+{% from "macros.j2" import render_excerpt with context %}
+<section class="blog_excerpt">
+{% set latest = site.content.walk_resources_sorted_by_time()|first %}
+
+{% if latest -%}
+{{ render_excerpt(latest, 'post') }}
+
+<a class="button white medium"
+  href="{{ content_url(latest.url) }}">Read more&hellip;</a>
+
+{%- endif %}
+</section>
+</div>
+
+{% from "macros.j2" import render_links with context %}
+<div class="col-lg-4"> 
+  <h2>
+    Links
+    <hr>
+  </h2>
+    {{ render_links(front_links) }}
+  <h2>
+    Categories
+    <hr>
+  </h2>
+</div>
