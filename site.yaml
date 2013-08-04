@@ -17,47 +17,54 @@ context:
             -
                 name: Home
                 description: Home Page
-                css_class: home
                 type: page
                 url: index.html
             -
                 name: Robots
                 description: Robots
-                css_class: robots
                 type: node
                 url: robots
             -
                 name: Competition
                 description: Competition details
-                css_class: competition
                 type: node
                 url: crl
+                nested:
+                  -
+                    name: Overview
+                    url: crl
+                  -
+                    name: Calendar
+                    url: crl/rules.html
+                  -
+                    name: Rules
+                    url: crl/rules.html
+                  -
+                    name: Results
+                    url: crl/rules.html
             -
                 name: Blog
                 description: Blog
-                css_class: blog
                 type: node
                 url: blog
         right_nav: 
             -
                 name: About
                 description: About
-                css_class: about
                 type: page
                 url: about.html
             -
                 name: Contact
                 description: About
-                css_class: about
                 type: page
                 url: contact.html
         front_carousel_items:
             -
                 source: front/1.jpg
-                caption: Awesome fighting pictures
+                caption:  Robespierre destroys an old MAC desktop during testing.
             -
                 source: front/2.jpg
-                caption: Awesome building pictures
+                caption: Abhishek completes his hammer in record time!
         front_links:
             -
                 title: Harvey Mudd College

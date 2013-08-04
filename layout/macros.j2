@@ -1,36 +1,66 @@
 {% macro render_excerpt(res, class=None) %}
 {% refer to res.url as post %}
-<article {{'class='~class if class }}>
-<h3><a href="{{ content_url(res.url) }}">{{ res.meta.title }}</a></h3>
-<a href="{{ content_url(res.url) }}">{{ post.image|markdown|typogrify }}</a>
-{{ post.excerpt|markdown|typogrify }}
+
+<div class="media">
+  <a class="pull-left" href="#">
+    <img class="media-object" src="{{ post.image }}">
+  </a>
+  <div class="media-body">
+    <h4 class="media-heading"><a href="{{ content_url(res.url) }}">{{ res.meta.title }}</a></h4>
+    {{ post.excerpt|markdown|typogrify }}
+  </div>
+</div>
+
+
+
 <time datetime="{{ res.meta.created.strftime('%Y-%m-%d') }}">
     Posted: {{ res.meta.created.strftime('%a, %d %b %Y') }}
 </time>
-</article>
 {% endmacro %}
 
 {% macro render_nav(menu) -%}
 {% if menu -%}
   <ul class="nav navbar-nav">
       {% for item in menu -%}
-      {% set active = False -%}
-      {% if item.type == 'page' -%}
-          {% set active = (resource.url ==
-              site.content.resource_from_relative_path(item.url).url) -%}
-      {% else -%}
-          {% set active = (node ==
-              site.content.node_from_relative_path(item.url)) -%}
-      {%- endif %}
-      {% set classes = ['button', 'white'] -%}
-      {% do classes.append('active') if active -%}
-      {% do classes.append(item.css_class) if item.css_class -%}
-      <li class="{{ classes|join(' ') }}">
-          <a title="{{ item.description }}"
-              href="{{ content_url(item.url) }}">
-              {{ item.name }}
-          </a>
-      </li>
+        {% set active = False -%}
+        {% if item.type == 'page' -%}
+            {% set active = (resource.url ==
+                site.content.resource_from_relative_path(item.url).url) -%}
+        {% else -%}
+            {% set active = (node ==
+                site.content.node_from_relative_path(item.url)) -%}
+        {%- endif %}
+        {% set classes = ['button', 'white'] -%}
+        {% do classes.append('active') if active -%}
+        {% do classes.append(item.css_class) if item.css_class -%}
+        {% do classes.append("dropdown") if item.nested -%}
+
+        {% if item.nested -%}
+          <li class="{{ classes|join(' ') }}">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              {{item.name }}
+              <span class="caret"></span>
+            </a>
+            <ul class = "dropdown-menu">
+              {% for subitem in item.nested -%}
+                <li> 
+                    <a title="{{ subitem.description }}"
+                        href="{{ content_url(subitem.url) }}">
+                        {{ subitem.name }}
+                    </a>
+                </li>
+
+              {%- endfor %}
+            </ul>
+          </li>
+        {% else -%}
+          <li class="{{ classes|join(' ') }}">
+              <a title="{{ item.description }}"
+                  href="{{ content_url(item.url) }}">
+                  {{ item.name }}
+              </a>
+          </li>
+        {%- endif %}
       {%- endfor %}
   </ul>
 {%- endif %}

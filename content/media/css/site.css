@@ -26,6 +26,7 @@
 .navbar-brand {
   max-width: 300px;
   color: #9E8352;
+  color: #CC9933;
   font-size: 24px;
   padding-right: 5px;
 }
@@ -45,4 +46,27 @@
 
 .navbar {
   margin-bottom: 15px;
+}
+
+article.post p {
+  font-size: 12px; 
+  line-height: 24px;
+  margin: 6px 0; 
+}
+
+article.post img {
+  display: block;
+  margin-bottom: 24px;
+}
+
+.blog_excert {
+  padding-bottom: 24px;
+}
+
+.post time{
+  font-size: 12px
+  color: #999;
+  float: left;
+  margin-top: 6px;
+
 }
