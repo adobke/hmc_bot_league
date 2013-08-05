@@ -28,8 +28,10 @@
             {% set active = (resource.url ==
                 site.content.resource_from_relative_path(item.url).url) -%}
         {% else -%}
-            {% set active = (node ==
-                site.content.node_from_relative_path(item.url)) -%}
+         {% set active = (node.parent ==
+            site.content.node_from_relative_path(item.url)) -%} 
+         {% set active = active or (node ==
+            site.content.node_from_relative_path(item.url)) -%} 
         {%- endif %}
         {% set classes = ['button', 'white'] -%}
         {% do classes.append('active') if active -%}
