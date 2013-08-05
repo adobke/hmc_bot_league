@@ -6,37 +6,17 @@ description: Home page for the Harvey Mudd Combat Robot Club
 ---
 
 {% from "macros.j2" import render_carousel with context %}
-<section class="content_header">
-  {{ render_carousel(front_carousel_items) }}
-</section>
-
-
-<div class="col-lg-8" id="updates"> 
-<h2>
-  Updates
-<hr>
-</h2>
-
-{% from "macros.j2" import render_excerpt with context %}
-<section class="blog_excerpt">
-{% set latest = site.content.walk_resources_sorted_by_time()|first %}
-
-{% if latest -%}
-{{ render_excerpt(latest) }}
-
-{%- endif %}
-</section>
-</div>
 
 {% from "macros.j2" import render_links with context %}
-<div class="col-lg-4"> 
-  <h2>
-    Links
-    <hr>
-  </h2>
-    {{ render_links(front_links) }}
-  <h2>Tags</h2>
-    <hr>
+<div id="left_bar" class="col-lg-3"> 
+  <div id="logo">
+    {{ "<img src='%s'/>"|format(media_url("front/robesfront.png")) }}
+    The Harvey Mudd College Combat Robot Club operates out of Claremont, California
+    and seeks to educate its' members about a variety of design and fabrication principles
+    as well as smashing robots!
+  </div>
+  <h4> Events </h4>
+  <h4>Tags </h4>
     <ul class="nav nav-pills nav-stacked">
       {% for tag, meta in site.tagger.tags -%}
         <li>
@@ -44,4 +24,20 @@ description: Home page for the Harvey Mudd Combat Robot Club
         </li>
       {%- endfor %}
     </ul>
+  <h4> Links  </h4>
+    {{ render_links(front_links) }}
 </div>
+
+<div class="col-lg-9" id="updates"> 
+  {{ render_carousel(front_carousel_items) }}
+  <h2>  Updates <hr> </h2>
+
+  {% from "macros.j2" import render_excerpt with context %}
+  <section class="blog_excerpt">
+  {% set latest = site.content.walk_resources_sorted_by_time() %}
+  {% for post in latest[:3] %}
+  {{ render_excerpt(post) }}
+  {% endfor %}
+</section>
+</div>
+

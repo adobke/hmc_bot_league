@@ -20,6 +20,7 @@ lib64
 output
 *.swp
 deploy
+.hyde_deps
 
 # Installer logs
 pip-log.txt

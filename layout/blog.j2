@@ -1,9 +1,45 @@
 {% extends "base.j2" %}
 
 {% block main -%}
-<article class="post">
+<article class="gen_post">
+
+<div class="post_header">
+<h1 class="title pull-left">
+    <a href="{{ content_url(resource.url) }}">
+        {{ resource.meta.title }}
+    </a>
+</h1>
+{% if resource.meta.tags %}
+  <ul class="tags list-inline pull-right">
+    {% for tag in resource.meta.tags %}
+    <li>
+      <a class="small" href="{{ content_url('blog/tags/'~tag~'.html') }}">
+        {{ tag }}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+<div class="clearfix"></div>
+<h4 class="author pull-left">
+  {{ resource.meta.author }}
+</h4>
+</div>
+
+<time class="pull-right" datetime="{{ resource.meta.created.strftime('%Y-%m-%d') }}">
+    Posted: {{ resource.meta.created.strftime('%a, %d %b %Y') }}
+</time>
+<div class="clearfix"></div>
+<hr>
+<br>
+
+{% filter markdown|typogrify -%}
+{% mark post -%}
+{% block post -%}{%- endblock %}
+{%- endmark %}
+{%- endfilter %}
+
 <nav class="post_nav">
-<a class="backlink" href="{{ content_url(resource.node.url) }}">Back to list</a>
 <a class="prev{{' disabled' if not resource.prev_by_time }}"
     title="{{ resource.prev_by_time.meta.title }}"
     {% if resource.prev_by_time %}
@@ -11,7 +47,7 @@
     Previous
 </a>
 
-<a class="next{{' disabled' if not resource.next_by_time }}"
+<a class="pull-right next{{' disabled' if not resource.next_by_time }}"
     title="{{ resource.next_by_time.meta.title }}"
     {% if resource.next_by_time %}
     href="{{ content_url(resource.next_by_time.url) }}"{% endif %}>
@@ -20,32 +56,6 @@
 
 <br>
 </nav>
-
-<h1 class="title">
-    <a href="{{ content_url(resource.url) }}">
-        {{ resource.meta.title }}
-    </a>
-</h1>
-<time datetime="{{ resource.meta.created.strftime('%Y-%m-%d') }}">
-    Posted: {{ resource.meta.created.strftime('%a, %d %b %Y') }}
-</time>
-
-{% if resource.meta.tags %}
-<ul class="tags clear">
-{% for tag in resource.meta.tags %}
-<li>
-    <a class="small" href="{{ content_url('blog/tags/'~tag~'.html') }}">
-        {{ tag }}
-    </a>
-</li>
-{% endfor %}
-</ul>
-{% endif %}
-{% filter markdown|typogrify -%}
-{% mark post -%}
-{% block post -%}{%- endblock %}
-{%- endmark %}
-{%- endfilter %}
 </article>
 
 {%- endblock %}

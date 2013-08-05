@@ -4,7 +4,7 @@
 <div class="blog_preview">
   <a class="pull-left" href="#">
     {# <img class="media-object" src="{{ post.image }}"> #}
-    {{ post.image|markdown }}
+    {{ "<img alt='%s' src='%s'/>"|format(res.title, media_url(res.meta.main_img)) }}
   </a>
   <div class="blog_preview_text">
     <h4><a href="{{ content_url(res.url) }}">{{ res.meta.title }}</a>

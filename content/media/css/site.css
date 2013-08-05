@@ -16,14 +16,14 @@
 .carousel-caption {
   position: absolute;
   bottom: 0;
-  padding: 15px;
+  padding: 10px;
   background: rgba(0,0,0,0.75);
   width: 100%;
   left: 0;
   text-align: right;
 }
 
-.navbar-brand {
+.navbar-inverse .navbar-brand {
   max-width: 300px;
   color: #9E8352;
   color: #CC9933;
@@ -34,9 +34,46 @@
 #updates {
   padding-left: 0px;
 }
+#left_bar {
+  padding-left: 0px;
+  line-height: 2px;
+}
+
+#left_bar img{
+  width: 100%;
+  padding-bottom: 10px;
+}
+#left_bar #logo {
+  line-height: 15px;
+  font-size: 12px;
+}
+
+#left_bar .nav {
+  font-size: 14px;
+}
+
+#left_bar h4 {
+  color: #c08a00;
+  background: #333;
+  padding: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  border-radius: 5px;
+}
+
+.nav {
+  font-size: 16px;
+}
+
+#left_bar a {
+  color: black;
+}
+#left_bar a:hover {
+  color: #c08a00;
+  background: #333;
+}
 
 #main_content {
-  line-height: 2px;
 }
 
 #main_content hr {
@@ -63,7 +100,7 @@
 
 .blog_preview img {
   width: 150px;
-  height: 150px;
+  height: auto;
   margin-right: 5px;
 }
 
@@ -74,4 +111,39 @@
 
 .blog_preview_text h4 a{
   margin-right: 5px;
+}
+
+.gen_post img {
+  max-width: 75%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.gen_post .title {
+  margin-top: 0px;
+}
+.gen_post .author {
+  margin-top: -10px;
+}
+.gen_post time {
+  margin-top: -10px;
+  margin-right: 5px;
+}
+
+.gen_post .tags {
+  margin-top: 21px;
+}
+
+.gen_post .post_header {
+  color: #000;
+}
+.gen_post a {
+  color: #c08a00;
+}
+.gen_post a:hover {
+  color: #000;
+  text-decoration: none;
 }

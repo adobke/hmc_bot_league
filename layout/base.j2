@@ -53,16 +53,14 @@
 <body id="{{ resource.meta.id if resource.meta.id else resource.slug }}">
   {% block content %}
     {% block topbar %}
-    <div class = "navbar navbar-static-top">
+    <div class = "navbar-inverse navbar navbar-static-top">
       <div class="container">
-        <a class="navbar-brand" href="#">{{ full_title }}</a>
-        <div class="nav-collapse collapse">
+        <a class="navbar-brand" href="#">{{ short_title }}</a>
           {% from "macros.j2" import render_nav with context %}
           {{ render_nav(main_nav) }}
-        </div>
-        <div class="pull-right">
-          {{ render_nav(right_nav) }}
-        </div>
+          <div class="pull-right">
+            {{ render_nav(right_nav) }}
+          </div>
       </div>
     </div>
     {% endblock %}
