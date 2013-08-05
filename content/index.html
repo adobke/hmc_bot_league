@@ -22,10 +22,7 @@ description: Home page for the Harvey Mudd Combat Robot Club
 {% set latest = site.content.walk_resources_sorted_by_time()|first %}
 
 {% if latest -%}
-{{ render_excerpt(latest, 'post') }}
-
-<a class="button white medium"
-  href="{{ content_url(latest.url) }}">Read more&hellip;</a>
+{{ render_excerpt(latest) }}
 
 {%- endif %}
 </section>
@@ -38,8 +35,13 @@ description: Home page for the Harvey Mudd Combat Robot Club
     <hr>
   </h2>
     {{ render_links(front_links) }}
-  <h2>
-    Categories
+  <h2>Tags</h2>
     <hr>
-  </h2>
+    <ul class="nav nav-pills nav-stacked">
+      {% for tag, meta in site.tagger.tags -%}
+        <li>
+          <a href="/blog/tags/{{tag}}.html"> {{tag}} </a>
+        </li>
+      {%- endfor %}
+    </ul>
 </div>

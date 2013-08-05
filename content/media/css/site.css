@@ -48,25 +48,30 @@
   margin-bottom: 15px;
 }
 
-article.post p {
-  font-size: 12px; 
-  line-height: 24px;
-  margin: 6px 0; 
-}
-
-article.post img {
-  display: block;
-  margin-bottom: 24px;
-}
-
 .blog_excert {
   padding-bottom: 24px;
 }
 
-.post time{
-  font-size: 12px
-  color: #999;
-  float: left;
-  margin-top: 6px;
+.blog_preview {
+  height: 150px;
+}
 
+.blog_preview time{
+  font-size: 12px;
+  color: #808080;
+}
+
+.blog_preview img {
+  width: 150px;
+  height: 150px;
+  margin-right: 5px;
+}
+
+.blog_preview_text {
+  line-height: 15px;
+  margin-bottom: 15px;
+}
+
+.blog_preview_text h4 a{
+  margin-right: 5px;
 }
