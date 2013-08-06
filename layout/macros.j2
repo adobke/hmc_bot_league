@@ -28,8 +28,8 @@
             {% set active = (resource.url ==
                 site.content.resource_from_relative_path(item.url).url) -%}
         {% else -%}
-         {% set active = (node.parent ==
-            site.content.node_from_relative_path(item.url)) -%} 
+         {% set active = (node != site.content and (node.parent ==
+            site.content.node_from_relative_path(item.url))) -%} 
          {% set active = active or (node ==
             site.content.node_from_relative_path(item.url)) -%} 
         {%- endif %}
