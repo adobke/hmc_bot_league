@@ -4,11 +4,11 @@
 <article class="gen_post">
 
 <div class="post_header">
-<h1 class="title pull-left">
+<h2 class="title pull-left">
     <a href="{{ content_url(resource.url) }}">
         {{ resource.meta.title }}
     </a>
-</h1>
+</h2>
 {% if resource.meta.tags %}
   <ul class="tags list-inline pull-right">
     {% for tag in resource.meta.tags %}
@@ -24,11 +24,11 @@
 <h4 class="author pull-left">
   {{ resource.meta.author }}
 </h4>
-</div>
-
 <time class="pull-right" datetime="{{ resource.meta.created.strftime('%Y-%m-%d') }}">
     Posted: {{ resource.meta.created.strftime('%a, %d %b %Y') }}
 </time>
+</div>
+
 <div class="clearfix"></div>
 <hr>
 <br>
