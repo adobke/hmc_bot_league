@@ -81,10 +81,7 @@
   background: #333;
 }
 
-#main_content {
-}
-
-#main_content hr {
+#main_container hr {
   margin-top: 5px;
   margin-bottom: 0;
 }

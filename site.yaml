@@ -54,7 +54,7 @@ context:
                 name: About
                 description: About
                 type: page
-                url: about.html
+                url: #
             -
                 name: Contact
                 description: About
