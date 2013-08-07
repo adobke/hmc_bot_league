@@ -1,0 +1,12 @@
+#main_content h2 {
+  margin-top: 0px;
+}
+
+#main_content .listing {
+  padding: 0px;
+  margin-left: 15px;
+}
+
+#main_content ul {
+  list-style: none;
+}
