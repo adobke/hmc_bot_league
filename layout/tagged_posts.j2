@@ -1,28 +1,12 @@
-{% extends "base.j2" %}
+{% extends "list.j2" %}
+
+{% block page_title %}
+<h2 class="title">{{ tag.name }}</h2>
+{% endblock %}
 
 {% block main %}
-<section class="archives">
-<h1 class="tag title">{{ tag.name }}</h1>
-<ul class="posts clear">
-{% for resource in walker() -%}
-<li class="post clear">
-    <time datetime="{{ resource.meta.created.strftime('%Y-%m-%d') }}">
-        {{ resource.meta.created.strftime('%a, %d %b %Y') }}
-    </time>
-    <a href="{{ content_url(resource.url) }}">{{ resource.meta.title }}</a>
-    {% if resource.meta.tags %}
-    <ul class="tags">
-    {% for tag in resource.meta.tags %}
-    <li>
-        <a class="small" href="{{ content_url('blog/tags/'~tag~'.html') }}">
-            {{ tag }}
-        </a>
-    </li>
-    {% endfor %}
-    </ul>
-    {% endif %}
+{% for res in walker() %}
+<li>
+    {{ render_excerpt(res) }}
 </li>
-{%- endfor %}
-</ul>
-</section>
 {% endblock %}
