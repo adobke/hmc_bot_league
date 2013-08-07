@@ -1,12 +1,15 @@
-{% extends "list.j2" %}
-
-{% block page_title %}
-<h2 class="title">{{ tag.name }}</h2>
+{% extends "listing.j2" %}
+{% block title %}
+{{ tag.name }}
 {% endblock %}
 
 {% block main %}
+<h2 class="title">{{ tag.name }}</h2>
+<ul class="listing">
 {% for res in walker() %}
 <li>
     {{ render_excerpt(res) }}
 </li>
+{% endfor %}
+</ul>
 {% endblock %}
