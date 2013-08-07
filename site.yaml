@@ -11,6 +11,7 @@ plugins:
     - hyde.ext.plugins.tagger.TaggerPlugin
     - hyde.ext.plugins.syntext.SyntextPlugin
     - hyde.ext.plugins.textlinks.TextlinksPlugin
+    - hyde.ext.plugins.structure.CollectorPlugin
 context:
     data:
         full_title: HMC Combat Robot Club
@@ -102,3 +103,7 @@ tagger:
             archive_extension: html
             meta:
                 listable: false
+collector:
+  sources: content/blog
+  folders: images
+  destination: content/media/images
