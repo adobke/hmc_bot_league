@@ -2,9 +2,9 @@
 {% refer to res.url as post %}
 
 <div class="blog_preview">
-  <a class="pull-left" href="#">
+  <a class="pull-left" href={{content_url(res.url)}}>
     {# <img class="media-object" src="{{ post.image }}"> #}
-    {{ "<img alt='%s' src='%s'/>"|format(res.title, media_url(res.meta.main_img)) }}
+    {{ "<img src='%s'/>"|format(res.node.get_relative_deploy_path() + "/" + res.meta.main_img) }}
   </a>
   <div class="blog_preview_text">
     <h4><a href="{{ content_url(res.url) }}">{{ res.meta.title }}</a>
@@ -17,6 +17,7 @@
   </div>
 <a class="pull-right" href="{{ content_url(res.url) }}">Read More&hellip;</a>
 </div>
+<div class="clearfix"></div>
 {% endmacro %}
 
 {% macro render_nav(menu) -%}
