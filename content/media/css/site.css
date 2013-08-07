@@ -38,7 +38,7 @@
 
 #left_bar {
   padding-left: 0px;
-  line-height: 2px;
+  line-height: 15px;
 }
 
 #left_bar img{
@@ -52,6 +52,11 @@
 
 #left_bar .nav {
   font-size: 14px;
+}
+
+#left_bar .nav li a{
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
 #left_bar h4 {
