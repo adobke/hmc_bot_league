@@ -16,6 +16,16 @@ description: Home page for the Harvey Mudd Combat Robot Club
     as well as smashing robots!
   </div>
   <h4> Events </h4>
+    <ul class="nav nav-pills nav-stacked">
+      {% for event in site.content.walk_resources_sorted_by_upcoming() %}
+        <li>
+        <a href={{ event.url }}> {{ event.meta.title }} 
+          <div class="pull-right"> {{event.meta.start_time.strftime('%m-%d %I:%M')}} </div>
+        </a>
+
+        </li>
+      {% endfor %}
+    </ul>
   <h4>Tags </h4>
     <ul class="nav nav-pills nav-stacked">
       {% for tag, meta in site.tagger.tags -%}
@@ -28,14 +38,14 @@ description: Home page for the Harvey Mudd Combat Robot Club
     {{ render_links(front_links) }}
 </div>
 
-<div class="col-lg-9" id="updates"> 
+<div class="col-lg-9 col-sm-10" id="updates"> 
   {{ render_carousel(front_carousel_items) }}
   <h2>  Updates <hr> </h2>
 
   {% from "macros.j2" import render_excerpt with context %}
   <section class="blog_excerpt">
   {% set latest = site.content.walk_resources_sorted_by_time() %}
-  {% for post in latest[:3] %}
+  {% for post in latest %}
   {{ render_excerpt(post) }}
   {% endfor %}
 </section>

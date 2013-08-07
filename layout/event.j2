@@ -1,0 +1,35 @@
+{% extends "base.j2" %}
+
+{% block main -%}
+<article class="gen_post">
+
+<div class="post_header">
+<h2 class="title pull-left">
+    <a href="{{ content_url(resource.url) }}">
+        {{ resource.meta.title }}
+    </a>
+</h2>
+<div class="clearfix"></div>
+<div id="times" class="pull-right">
+  <time id="start" datetime="{{ resource.meta.start_time.strftime('%Y-%m-%d-%T') }}">
+  Start: {{ resource.meta.start_time.strftime('%a, %d %b %Y - %I:%M %p') }}
+  </time>
+      <br>
+  <time id="end" datetime="{{ resource.meta.start_time.strftime('%Y-%m-%d-%T') }}">
+  End: {{ resource.meta.start_time.strftime('%a, %d %b %Y - %I:%M %p') }}
+  </time>
+  <br>
+</div>
+</div>
+
+<div class="clearfix"></div>
+<hr>
+<br>
+
+{% filter markdown|typogrify -%}
+{% mark event -%}
+{% block event -%}{%- endblock %}
+{%- endmark %}
+{%- endfilter %}
+
+{%- endblock %}

@@ -1,0 +1,3 @@
+extends: event.j2
+default_block: event
+event: true

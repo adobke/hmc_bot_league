@@ -169,6 +169,13 @@
   text-decoration: none;
 }
 
+.gen_post #times {
+  margin-top: -40px;
+}
+.gen_post #times #end{
+  margin-left: 11px;
+}
+
 h2 {
   font-family: "orbitronlight";
 }
