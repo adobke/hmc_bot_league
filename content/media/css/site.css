@@ -55,8 +55,8 @@
 }
 
 #left_bar .nav li a{
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 #left_bar h4 {
@@ -92,6 +92,10 @@
 .navbar {
   margin-bottom: 15px;
   font-family: "orbitronregular";
+}
+
+.navbar .dropdown-menu {
+  font-family: "orbitronlight";
 }
 
 .blog_excert {
