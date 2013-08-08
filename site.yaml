@@ -108,3 +108,8 @@ tagger:
             archive_extension: html
             meta:
                 listable: false
+markdown:
+  extensions:
+    - tables
+    - toc
+    - sane_lists

@@ -1,0 +1,58 @@
+---
+extends: base.j2
+title: Rules
+description: Rules page for CRL competition
+---
+{% block extracss %}
+<link rel="stylesheet" href="{{ media_url('css/rules.css') }}">
+{% endblock extracss %}
+
+{% block main %}
+<h2> Rules </h2>
+
+[TOC]
+
+1. ### Safety 
+Safety first.
+
+1. ### Robot 
+
+    1. #### Weight
+      Weight allowance is determined based on class of robot locomotion.  Robots must be pre approved in order to recieve 
+      a weight bonus above 8 lbs.
+
+          |Classification|Allowed Weight|
+          |----------|--------------|
+          |Rolling    | 8 lbs       |
+          |Shuffling    | 8 lbs     |
+          |Walking    | 16 lbs      |
+          |Flying    | 16 lbs       |
+          |Hovercraft    | 16 lbs       |
+          |Autonomous| 16 lbs       |
+
+    1. #### Power
+        1. ##### Power Source
+        All robots must use commerically available LiPo or NiMh battery packs.  No energy may be stored in spring or
+        flywheels prior to the start of a match.
+        1. ##### Power Connection
+        A physical disconnect must be available for all power sources and that connection must be accessible within
+        a reasonable amount of time.  Operators must be able to physically connect and disconnect power 
+        quickly at the beginning and end of matches.
+
+    1. #### Weapon
+        1. ##### Permitted Weaponry
+        The use of the following classes of weaponry is not permitted:
+            * Projectile
+            * Explosive
+            * Magnetic or electrical
+            * Any weapon that interferes with the operator rather then the robot
+            * EMP/Jamming
+            * Rocket
+            * Entanglement
+            * Liquid or gelled flamethrower (the fuel may be stored as a liquid)
+  
+    1. #### Communication/Control
+    Robots must use digitally encoded transmission methods such as 2.4 GHz radio
+        
+{% endblock %}
+
