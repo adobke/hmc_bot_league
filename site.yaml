@@ -22,10 +22,14 @@ context:
                 type: page
                 url: index.html
             -
-                name: Robots
-                description: Robots
+                name: Resources
+                description: Resources
                 type: node
-                url: robots.html
+                url: resources
+                nested:
+                  -
+                    name: Calculators
+                    url: resources/calcs.html
             -
                 name: Competition
                 description: Competition details

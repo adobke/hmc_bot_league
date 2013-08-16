@@ -59,6 +59,11 @@
   padding-bottom: 3px;
 }
 
+.navbar .nav li a {
+  padding-right: 11px;
+  padding-left: 11px;
+}
+
 #left_bar h4 {
   color: #c08a00;
   background: #333;

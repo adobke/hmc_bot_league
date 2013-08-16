@@ -1,0 +1,77 @@
+---
+extends: base.j2
+default_block: main
+title: Calculators
+description: Calculators for quick engineering calculations
+---
+<h2 class="title" style="margin-top:0">
+  Calculators
+</h2>
+
+<div id="rpmtorquecalc">
+  <h4> Motor RPM & Torque </h4> 
+  KV:             <input type="text" id="kvinput"  > <br>
+Voltage (volts):        <input type="text" id="voltageinput"  ><br>
+Wheel Diameter (in): <input type="text" id="diameterinput"  ><br>
+Amperage: <input type="text" id="ampsinput"  ><br>
+Ratio: <input type="text" id="ratioinput" value="1"><br>
+<br>
+RPM:            <input type="text" id="rpmoutput"  readonly><br>
+Top speed (mph):            <input type="text" id="speedoutput" readonly ><br>
+Torque (oz-in):            <input type="text" id="torqueoutput" readonly ><br>
+Force (lbf):            <input type="text" id="forceoutput" readonly ><br>
+</div>
+
+<style media="screen" type="text/css">
+  #rpmtorquecalc  {
+    line-height: 1.5em;
+    width: 225px;
+    background: #eee;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  #rpmtorquecalc h4{
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-family: orbitronregular;
+    font-size: 16px;
+  }
+  #rpmtorquecalc input {
+    width: 70px;
+    float: right;
+    clear: both;
+    margin-left: -70px;
+    border: 1px solid #ccc;
+    line-height: normal;
+  }
+  #rpmtorquecalc input[readonly] {
+    background: rgb(34,34,34);
+    color: #cc9933;
+  }
+</style>
+
+<script type="text/javascript">
+function updatevals() {
+var kv = parseInt( document.getElementById('kvinput').value );
+var voltage = parseFloat( document.getElementById('voltageinput').value );
+var diameter = parseFloat( document.getElementById('diameterinput').value );
+var amps = parseInt( document.getElementById('ampsinput').value );
+var ratio = parseFloat( document.getElementById('ratioinput').value );
+
+var rpm = kv * voltage / ratio;
+var topspeed = rpm * 3.14159 * diameter * .000947;
+var torque = 1352/kv * amps * ratio;
+var force = torque / (diameter / 2) * .0625; //1 oz = .0625 lbs
+document.getElementById('rpmoutput').value=rpm;
+document.getElementById('speedoutput').value=topspeed;
+document.getElementById('torqueoutput').value=torque;
+document.getElementById('forceoutput').value=force;
+}
+
+document.getElementById('kvinput').onkeyup=updatevals;
+document.getElementById('voltageinput').onkeyup=updatevals;
+document.getElementById('diameterinput').onkeyup=updatevals;
+document.getElementById('ampsinput').onkeyup=updatevals;
+document.getElementById('ratioinput').onkeyup=updatevals;
+</script>
